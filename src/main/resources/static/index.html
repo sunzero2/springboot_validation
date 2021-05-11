@@ -5,7 +5,7 @@
 <body>
 <p>Validation Test</p>
 <form id="saveForm">
-    <input name="userId" placeholder="id" type="text">
+    <input name="id" placeholder="id" type="text">
     <input name="age" placeholder="age" type="text">
     <button>submit</button>
 </form>
@@ -26,11 +26,12 @@
         fetch('http://localhost:8080/user/save', {
             method: 'POST',
             body: JSON.stringify(params),
-
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
             .then(response => response.json())
-            .then(data => console.dir(data));
-
+            .then(data => console.dir(data))
     }
 </script>
 </body>
